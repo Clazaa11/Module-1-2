@@ -1,17 +1,29 @@
+<!-- Clarence V. Mendoza | CYB - 201 | November 29, 2025 -->
+
 <?php
-	$item1 = "Mouse";
-	$prices1 = 1000;
+    // Initialize item values
 
-	$item2 = "Keyboard";
-	$prices2 = 1200;
+    $items = [
+        "Mouse" => 1000,
+        "Keyboard" => 1200,
+        "Headset" => 600,
+        "Monitor" => 7500
+    ];
 
-	$item3 = "Headset";
-	$prices3 = 600;
+    //Comment out the changes
+	// $item1 = "Mouse";
+	// $prices1 = 1000;
 
-	$item4 = "Monitor";
-	$prices4 = 7500;
+	// $item2 = "Keyboard";
+	// $prices2 = 1200;
 
-	$bundle = ($prices1 + $prices2 + $prices3 + $prices4) * 0.80;
+	// $item3 = "Headset";
+	// $prices3 = 600;
+
+	// $item4 = "Monitor";
+	// $prices4 = 7500;
+
+	$bundle = array_sum($items) * 0.80;
 ?>
 
 <!DOCTYPE html>
@@ -23,13 +35,7 @@
 	<link rel="stylesheet" href="storestyles.css">
 </head>
 <body>
-	<header id="header">
-        <h1>PC PARTS</h1>
-        <nav id="nav-bar">
-            <a href="#items" class="nav-link">Items</a>
-            <a href="#prices" class="nav-link">Pricing</a>
-        </nav>
-    </header>
+	<?php include "header.php" ?>
 
     <section id="items">
         <h1>Available Items</h1>
@@ -51,25 +57,20 @@
                 <th>Price (₱)</th>
             </tr>
 
-            <tr>
-                <td><?php echo $item1; ?></td>
-                <td><?php echo $prices1; ?></td>
-            </tr>
-
-            <tr>
-                <td><?php echo $item2; ?></td>
-                <td><?php echo $prices2; ?></td>
-            </tr>
-
-            <tr>
-                <td><?php echo $item3; ?></td>
-                <td><?php echo $prices3; ?></td>
-            </tr>
-
-            <tr>
-                <td><?php echo $item4; ?></td>
-                <td><?php echo $prices4; ?></td>
-            </tr>
+            <?php foreach ($items as $item => $price): ?>
+                <tr>
+                    <td><?php echo $item; ?></td>
+                    <td>
+                        <?php 
+                            if ($price > 5000) {
+                                echo "<b>$price</b>";
+                            } else {
+                                echo $price;
+                            }
+                        ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
 
             <tr class="total">
                 <td>Bundle Price (All Items)</td>
@@ -78,8 +79,6 @@
         </table>
     </section>
 
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> Clarence V. Mendoza | CYB - 201</p>
-    </footer>
+    <?php include "footer.php" ?>
 </body>
 </html>
