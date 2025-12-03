@@ -56,7 +56,7 @@
             <?php foreach ($items as $item => $price): ?>
                 <tr>
                     <td><?php echo $item; ?></td>
-                    <td><?php echo $price; ?></td>
+                    <td>Php <?php echo $price; ?></td>
                 </tr>
             <?php endforeach; ?>
 
