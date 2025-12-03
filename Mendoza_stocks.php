@@ -77,8 +77,8 @@ declare(strict_types=1);
                 <td><?= $name ?></td>
                 <td><?= $s ?></td>
                 <td><?= get_reorder_message($s) ?></td>
-                <td><?= round(get_total_value($p, $s), 2) ?></td>
-                <td><?= round(get_tax_due($p, $s, $tax), 2) ?></td>
+                <td>Php <?= round(get_total_value($p, $s), 2) ?></td>
+                <td>Php <?= round(get_tax_due($p, $s, $tax), 2) ?></td>
             </tr>
         <?php endforeach; ?>
     </table>
